@@ -1,4 +1,4 @@
-# ai-config
+# AI Config
 
 Claude Code と Codex の設定を管理するリポジトリ。GNU stow で `$HOME` 配下にシンボリックリンクを張る。
 
@@ -32,7 +32,9 @@ git clone <this repo> ai-config
 ~/ai-config/install.sh
 ```
 
-リンク先に既存の通常ファイルがある場合は `<name>.bak.<日時>` に退避してから stow する。何度実行しても問題ない。
+何度実行しても問題ない。`~` 直下に clone すること (stow のターゲットはリポジトリの親ディレクトリになる)。
+
+リンク先に既存の通常ファイル (例: `~/.claude/settings.json`) がある場合は `stow --adopt` でリポジトリ側に取り込み、その差分を表示してから `git checkout` でリポジトリの版に戻す。既存ファイルの内容は破棄されるので、必要なら表示された差分から拾う。`claude/` / `codex/` に未コミットの変更があると、上書きを防ぐためエラーで止まる。
 
 ## 設定の追加
 
@@ -40,6 +42,6 @@ git clone <this repo> ai-config
 - Claude 専用: `claude/.claude/` 配下に置く (例: `agents/`, `commands/`, `skills/`, `hooks/`)
 - Codex 専用: `codex/.codex/` 配下に置く (例: `config.toml`, `rules/`)
 
-追加後は `./install.sh` を再実行する。新しいツールを追加する場合は `<tool>/.<tool>/...` のパッケージを作り、`install.sh` の `PACKAGES` と `.gitignore` に追記する。
+追加後は `./install.sh` を再実行する。新しいツールを追加する場合は `<tool>/.<tool>/...` のパッケージを作り、`install.sh` の `stow` の引数と `.gitignore` に追記する。
 
 `~/.claude` / `~/.codex` 自体は実ディレクトリのまま残り、ファイル単位でリンクされるため、セッション履歴や認証情報がリポジトリに入ることはない。
