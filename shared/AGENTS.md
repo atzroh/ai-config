@@ -21,7 +21,7 @@
 
 ## コードとツール
 - コード、コメント、コミットメッセージの言語は、各リポジトリの既存のものに合わせる。
-- コミットメッセージは、`feat:`、`fix:` などの接頭辞を付けた 1 行にする。本文や `Co-Authored-By` などの行は付けない。
+- コミットメッセージは、Conventional Commits 形式 (`feat:`、`fix:` など) の 1 行にする。本文や `Co-Authored-By` などの行は付けない。
 - Python: `uv` を使う (`uv run`、`uv add`)。システムの Python に `pip install` しない。
 - Node.js: バージョンは `fnm` で管理する。パッケージマネージャーは、各プロジェクトの lockfile に合わせる。
 
