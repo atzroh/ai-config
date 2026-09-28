@@ -1,0 +1,24 @@
+### ignore all the files ###
+/*
+/**
+
+### add required files ###
+
+# script
+!install.sh
+
+# shared instructions (single source for CLAUDE.md / AGENTS.md)
+!/shared/
+!/shared/**
+
+# Claude Code (~/.claude)
+!/claude/
+!/claude/**
+
+# Codex (~/.codex)
+!/codex/
+!/codex/**
+
+# others
+!/README.md
+!.gitignore
