@@ -11,7 +11,10 @@ Claude Code と Codex の設定を管理するリポジトリ。GNU stow で `$H
 ├── claude                # stow package -> ~/.claude
 │  └── .claude
 │     ├── CLAUDE.md -> ../../shared/AGENTS.md
-│     └── settings.json
+│     ├── settings.json
+│     ├── statusline.sh   # statusLine の表示
+│     └── hooks
+│        └── notify.sh    # CLI 用のデスクトップ通知
 ├── codex                 # stow package -> ~/.codex
 │  └── .codex
 │     └── AGENTS.md -> ../../shared/AGENTS.md

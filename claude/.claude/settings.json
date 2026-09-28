@@ -1,3 +1,108 @@
 {
-  "$schema": "https://json.schemastore.org/claude-code-settings.json"
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "language": "japanese",
+  "cleanupPeriodDays": 30,
+  "feedbackSurveyRate": 0,
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "permissions": {
+    "defaultMode": "plan",
+    "allow": [
+      "Bash(rg *)",
+      "Bash(jq *)",
+      "Bash(eza *)",
+      "Bash(tree *)",
+      "Bash(batcat *)",
+      "Bash(git show *)"
+    ],
+    "ask": [
+      "Bash(rg *--pre*)",
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "Bash(git rebase *)",
+      "Bash(git reset *)",
+      "Bash(git merge *)",
+      "Bash(git cherry-pick *)",
+      "Bash(git revert *)",
+      "Bash(git clean *)",
+      "Bash(git checkout *)",
+      "Bash(git switch *)",
+      "Bash(git restore *)",
+      "Bash(git stash *)",
+      "Bash(git branch -d *)",
+      "Bash(git branch -D *)",
+      "Bash(git rm *)",
+      "Bash(rm *)",
+      "Bash(rmdir *)",
+      "Bash(unlink *)",
+      "Bash(sudo *)",
+      "Bash(uv add *)",
+      "Bash(uv remove *)",
+      "Bash(uv pip install *)",
+      "Bash(uv tool install *)",
+      "Bash(pip install *)",
+      "Bash(pip3 install *)",
+      "Bash(npm install *)",
+      "Bash(npm i *)",
+      "Bash(npm uninstall *)",
+      "Bash(pnpm add *)",
+      "Bash(pnpm install *)",
+      "Bash(pnpm remove *)",
+      "Bash(yarn add *)",
+      "Bash(apt *)",
+      "Bash(apt-get *)",
+      "Bash(snap install *)"
+    ],
+    "deny": [
+      "Read(~/.ssh/**)",
+      "Read(~/.gnupg/**)",
+      "Read(~/.aws/**)",
+      "Read(~/.config/gh/**)",
+      "Read(~/.netrc)",
+      "Read(~/.claude/.credentials.json)",
+      "Read(//**/.env)",
+      "Read(//**/.env.*)",
+      "Bash(git push *--force*)",
+      "Bash(git push -f *)",
+      "Bash(git push * -f)",
+      "Bash(git push * -f *)",
+      "Bash(rm -rf*)",
+      "Bash(rm -fr*)",
+      "Bash(rm -Rf*)",
+      "Bash(rm -r -f*)"
+    ]
+  },
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "permission_prompt|elicitation_dialog|elicitation_url_dialog",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/notify.sh"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/notify.sh"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh"
+  },
+  "tui": "fullscreen",
+  "editorMode": "vim",
+  "timeFormat": "24-hour",
+  "showTurnDuration": true
 }
