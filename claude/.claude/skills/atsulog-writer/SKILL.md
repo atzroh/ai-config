@@ -1,6 +1,6 @@
 ---
-name: atsulog-writer
-description: Writes explanatory sections in Markdown for the user's personal blog, which is mainly a tech/programming blog kept largely as a personal record (occasionally lifestyle/hobby topics). Typical requests are overviews, proofs, and "types of X with brief explanations" (e.g. 「〇〇の概要を書いて」「〜の証明を書いて」「〜の種類と簡単な説明」), as well as outlines or heading structures for a post (「構成を作って」「見出しを考えて」). Always use this skill whenever the user asks for blog or article content, a section of a post, or a post outline, even if they do not explicitly mention the skill or the word "blog".
+name: "atsulog-writer"
+description: Writes explanatory sections in Markdown for the user's personal blog, which is mainly a tech/programming blog kept largely as a personal record (occasionally lifestyle/hobby topics). Typical requests are overviews, proofs, and "types of X with brief explanations" (e.g. 「〇〇の概要を書いて」「〜の証明を書いて」「〜の種類と簡単な説明」), outlines or heading structures for a post (「構成を作って」「見出しを考えて」), and figures for a post (「図を差し込めるところを提案して」「図を作って」「グラフにして」), which are drawn with a Python script. Always use this skill whenever the user asks for blog or article content, a section of a post, a post outline, or figures/diagrams/graphs for an article they share, even if they do not explicitly mention the skill or the word "blog".
 ---
 
 # ブログ記事作成スキル
@@ -16,6 +16,7 @@ description: Writes explanatory sections in Markdown for the user's personal blo
 ## 2. モードを判断する
 
 - **構成案モード**：「構成」「見出し」「アウトライン」などの言葉があるとき
+- **図作成モード**：「図」「グラフ」「可視化」「イラスト」などの言葉があるとき（「この記事に図を差し込めるところはある？」など）．本文と図を同時に頼まれたら本文モードで書き，図は `references/figures.md` の 6 節に従う
 - **本文モード**：それ以外（「〜の概要を書いて」「〜を説明して」など）
 
 ### 構成案モード
@@ -26,6 +27,14 @@ description: Writes explanatory sections in Markdown for the user's personal blo
 ### 本文モード
 
 依頼された内容の解説を書き，`.md` ファイルとして渡す．ファイル名は内容がわかる英数字のスラッグにする（例：`os-types.md`）．
+
+### 図作成モード
+
+記事（またはその一部）に差し込む図を提案し，図を描く Python スクリプトと生成した画像を渡す．
+ユーザーは「プログラムを作成して図をかけるのが一番いい」と考えているので，説明だけで終わらせず，実際に図を生成する．
+さらに，各図について**差し込む位置（どの行の前か後か）**と，**そのまま貼れる導入文つきの Markdown ブロック**まで用意する．受け取ったものを貼るだけで済む状態にするのが目標である．
+本文モードで図も頼まれた場合は，図を前提にした本文を書き，図のブロックを最初から入れる．
+手順と描き方の詳細は `references/figures.md` を読んでから作業する．雛形は `assets/figure_template.py` にある．
 
 ## 3. 出力の形式
 
@@ -66,6 +75,8 @@ description: Writes explanatory sections in Markdown for the user's personal blo
 - 太字は本当に大事な箇所だけに使う
 
 ## 7. 出力前のチェック
+
+図作成モードでは，ここに加えて `references/figures.md` の「出力前のチェック」も確認する．
 
 - 「、」「。」が一つも残っていないか（すべて「，」「．」になっているか）
 - `#` のタイトルや「まとめ」を書いていないか
