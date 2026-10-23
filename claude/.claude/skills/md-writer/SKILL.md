@@ -1,5 +1,5 @@
 ---
-name: "atsulog-writer"
+name: "md-writer"
 description: Writes explanatory sections in Markdown for the user's personal blog, which is mainly a tech/programming blog kept largely as a personal record (occasionally lifestyle/hobby topics). Typical requests are overviews, proofs, and "types of X with brief explanations" (e.g. 「〇〇の概要を書いて」「〜の証明を書いて」「〜の種類と簡単な説明」), outlines or heading structures for a post (「構成を作って」「見出しを考えて」), and figures for a post (「図を差し込めるところを提案して」「図を作って」「グラフにして」), which are drawn with a Python script. Always use this skill whenever the user asks for blog or article content, a section of a post, a post outline, or figures/diagrams/graphs for an article they share, even if they do not explicitly mention the skill or the word "blog".
 ---
 
