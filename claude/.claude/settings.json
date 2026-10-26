@@ -102,7 +102,7 @@
     "command": "~/.claude/statusline.sh"
   },
   "tui": "fullscreen",
-  "editorMode": "vim",
+  "editorMode": "normal",
   "timeFormat": "24-hour",
   "showTurnDuration": true
 }
