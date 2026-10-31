@@ -1,0 +1,8 @@
+schema_version: "1.1"
+name: python-long-function
+expected_outcome: |
+  コードを変更せず、既存テスト (pytest) を実行したうえで、番号付き・優先度付きの提案一覧を示して承認を求める。
+  提案には、粒度の混在、責務の混在 (読み込み・集計・整形・書き出し)、冗長なコメント、命名の不統一、
+  無駄なラッパー (read_file / open_csv) が含まれる。
+context:
+  scaffold_script: place-files.sh

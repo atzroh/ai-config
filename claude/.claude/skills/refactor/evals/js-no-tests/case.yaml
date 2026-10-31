@@ -1,0 +1,7 @@
+schema_version: "1.1"
+name: js-no-tests
+expected_outcome: |
+  コードを変更せず、テストが存在しないため変更後の挙動は未検証になることを明示したうえで、
+  番号付き・優先度付きの提案一覧を示して承認を求める。
+context:
+  scaffold_script: place-files.sh
