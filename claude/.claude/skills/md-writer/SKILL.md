@@ -1,6 +1,6 @@
 ---
 name: "md-writer"
-description: Writes explanatory sections in Markdown for the user's personal blog, which is mainly a tech/programming blog kept largely as a personal record (occasionally lifestyle/hobby topics). Typical requests are overviews, proofs, and "types of X with brief explanations" (e.g. 「〇〇の概要を書いて」「〜の証明を書いて」「〜の種類と簡単な説明」), outlines or heading structures for a post (「構成を作って」「見出しを考えて」), and figures for a post (「図を差し込めるところを提案して」「図を作って」「グラフにして」), which are drawn with a Python script. Always use this skill whenever the user asks for blog or article content, a section of a post, a post outline, or figures/diagrams/graphs for an article they share, even if they do not explicitly mention the skill or the word "blog".
+description: Writes explanatory sections in Markdown for the user's personal blog, which is mainly a tech/programming blog kept largely as a personal record (occasionally lifestyle/hobby topics). Typical requests are overviews, proofs, and "types of X with brief explanations" (e.g. 「〇〇の概要を書いて」「〜の証明を書いて」「〜の種類と簡単な説明」), outlines or heading structures for a post (「構成を作って」「見出しを考えて」), and figures for a post (「図を差し込めるところを提案して」「図を作って」「グラフにして」「フローチャートにして」). Structural diagrams (flowcharts, sequence diagrams, state transitions, dependencies) are written as Mermaid code blocks, and numeric graphs or plots are drawn with a Python script. Always use this skill whenever the user asks for blog or article content, a section of a post, a post outline, or figures/diagrams/graphs for an article they share, even if they do not explicitly mention the skill or the word "blog".
 ---
 
 # ブログ記事作成スキル
@@ -28,14 +28,19 @@ description: Writes explanatory sections in Markdown for the user's personal blo
 ### 本文モード
 
 依頼された内容の解説を書き，`.md` ファイルとして渡す．ファイル名は内容がわかる英数字のスラッグにする（例：`os-types.md`）．
+処理の流れ・手順・やりとりの順序・構成など，図があると理解が速くなる箇所には，頼まれていなくても Mermaid 図を本文に入れてよい．入れるのは本当に効く箇所だけにし，書き方は `references/mermaid.md` に従う．
 
 ### 図作成モード
 
-記事（またはその一部）に差し込む図を提案し，図を描く Python スクリプトと生成した画像を渡す．
-ユーザーは「プログラムを作成して図をかけるのが一番いい」と考えているので，説明だけで終わらせず，実際に図を生成する．
+記事（またはその一部）に差し込む図を提案し，実際に図を作って渡す．説明だけで終わらせない．
+ブログは ```` ```mermaid ```` のコードブロックを描画できるので，図の種類で描き方を分ける．
+
+- **構造の図**（処理の流れ，手順，状態遷移，やりとりの順序，構成・依存関係）：Mermaid で書く．スクリプトも画像も不要で，コードブロックを記事に貼るだけで済む．詳細は `references/mermaid.md`
+- **数値の図**（関数のグラフ，データのプロット，収束の様子など）：Python スクリプトで画像を生成する．ユーザーは「プログラムを作成して図をかけるのが一番いい」と考えている．詳細は `references/figures.md`
+
 さらに，各図について**差し込む位置（どの行の前か後か）**と，**そのまま貼れる導入文つきの Markdown ブロック**まで用意する．受け取ったものを貼るだけで済む状態にするのが目標である．
 本文モードで図も頼まれた場合は，図を前提にした本文を書き，図のブロックを最初から入れる．
-手順と描き方の詳細は `references/figures.md` を読んでから作業する．雛形は `assets/figure_template.py` にある．
+作業前に，使う方の reference を読む（差し込み位置と文章の決め方は両方とも `references/figures.md` の 5 節に従う）．Python の雛形は `assets/figure_template.py` にある．
 
 ## 3. 出力の形式
 
@@ -77,7 +82,7 @@ description: Writes explanatory sections in Markdown for the user's personal blo
 
 ## 7. 出力前のチェック
 
-図作成モードでは，ここに加えて `references/figures.md` の「出力前のチェック」も確認する．
+図を作ったときは，ここに加えて `references/figures.md`（Python の図）や `references/mermaid.md`（Mermaid 図）の「出力前のチェック」も確認する．
 
 - 「、」「。」が一つも残っていないか（すべて「，」「．」になっているか）
 - `#` のタイトルや「まとめ」を書いていないか
