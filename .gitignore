@@ -25,3 +25,6 @@
 # others
 !/README.md
 !.gitignore
+
+# python cache
+__pycache__/
