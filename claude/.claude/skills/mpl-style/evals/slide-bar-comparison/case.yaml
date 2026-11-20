@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: slide-bar-comparison
+expected_outcome: |
+  A script and a bar chart for a slide, after asking (or stating it would ask) whether to save as PNG or PDF.

@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: notebook-damping-sweep
+expected_outcome: |
+  Notebook-style code comparing step responses for several damping ratios, drawn with the paper-wide preset because the user may put it in a paper.

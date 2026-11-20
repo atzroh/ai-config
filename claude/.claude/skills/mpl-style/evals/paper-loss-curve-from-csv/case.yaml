@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: paper-loss-curve-from-csv
+expected_outcome: |
+  A runnable Python script and a PDF of the loss curve sized for a single paper column, following the mpl-style rules.
+context:
+  scaffold_script: place-files.sh

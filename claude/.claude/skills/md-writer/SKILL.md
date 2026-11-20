@@ -40,7 +40,7 @@ description: Writes explanatory sections in Markdown for the user's personal blo
 
 さらに，各図について**差し込む位置（どの行の前か後か）**と，**そのまま貼れる導入文つきの Markdown ブロック**まで用意する．受け取ったものを貼るだけで済む状態にするのが目標である．
 本文モードで図も頼まれた場合は，図を前提にした本文を書き，図のブロックを最初から入れる．
-作業前に，使う方の reference を読む（差し込み位置と文章の決め方は両方とも `references/figures.md` の 5 節に従う）．Python の雛形は `assets/figure_template.py` にある．
+作業前に，使う方の reference を読む（差し込み位置と文章の決め方は両方とも `references/figures.md` の 5 節に従う）．Python の雛形は `assets/figure_template.py` にあり，グラフの様式は mpl-style スキル（`~/.claude/skills/mpl-style/SKILL.md`）に従う．
 
 ## 3. 出力の形式
 
