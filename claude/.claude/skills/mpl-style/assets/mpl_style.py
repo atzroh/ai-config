@@ -166,7 +166,7 @@ def _demo(preset):
     c.grid(axis="x", visible=False)
     c.set_ylabel("Accuracy")
     if preset == "slide":
-        fig.suptitle("Proposed method converges faster")
+        fig.suptitle("Training score, samples, and accuracy")
     save(fig, f"demo_{preset}", "png")
 
 

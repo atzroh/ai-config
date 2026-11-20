@@ -28,7 +28,7 @@ def fig_01_example():
     ax.axhline(1, color=C_REF, linestyle="--", linewidth=1, label="$y=1$")
     ax.margins(x=0)
     ax.set_xlabel("$x$")
-    ax.set_title("Short message of this figure")
+    ax.set_title("What this figure plots")
     ax.legend()
     save(fig, "01_example", FMT)
 
