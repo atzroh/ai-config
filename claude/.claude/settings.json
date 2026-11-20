@@ -104,5 +104,8 @@
   "tui": "fullscreen",
   "editorMode": "normal",
   "timeFormat": "24-hour",
-  "showTurnDuration": true
+  "showTurnDuration": true,
+  "enabledPlugins": {
+    "lua-lsp@claude-plugins-official": true
+  }
 }
