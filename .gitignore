@@ -16,6 +16,7 @@
 !/claude/**
 # synced skills cache (auto-generated)
 /claude/.claude/skills/synced/
+/claude/.claude/skills/.trash/
 
 # Codex (~/.codex)
 !/codex/
